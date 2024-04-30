@@ -89,7 +89,14 @@ export default function App() {
                 ),
             });
         }
-    });
+    }, [
+        useLowercase,
+        useUppercase,
+        useDigits,
+        useSpecialChars,
+        sliderValue,
+        toast,
+    ]);
     useEffect(() => {
         setInputValue(password);
     }, [password]);
