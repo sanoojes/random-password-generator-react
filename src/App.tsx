@@ -97,6 +97,7 @@ export default function App() {
         sliderValue,
         toast,
     ]);
+
     useEffect(() => {
         setInputValue(password);
     }, [password]);
@@ -129,7 +130,7 @@ export default function App() {
                 </svg>
             </button>
             <main className="flex text-neutral-50 bg-neutral-950 h-screen w-screen justify-center items-center">
-                <Card className="w-8/12 max-w-screen-md">
+                <Card className="w-11/12 max-w-screen-md">
                     <CardHeader>
                         <CardTitle>Random Password Generator</CardTitle>
                         <CardDescription>
@@ -210,7 +211,10 @@ export default function App() {
                         </Card>
                     </CardContent>
                     <CardFooter className="justify-center">
-                        <Button onClick={generatePassword} className="w-full">
+                        <Button
+                            onClick={generatePassword}
+                            className="w-full text-clip"
+                        >
                             Generate Random Password
                         </Button>
                     </CardFooter>
