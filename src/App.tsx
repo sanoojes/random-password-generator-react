@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "./components/ui/toast";
@@ -57,7 +57,7 @@ export default function App() {
         setUseSpecialChars(true);
     };
 
-    const generatePassword = () => {
+    const generatePassword = useCallback(() => {
         if (useLowercase || useDigits || useSpecialChars || useUppercase) {
             let characters = "";
             if (useLowercase) characters += "abcdefghijklmnopqrstuvwxyz";
@@ -89,10 +89,14 @@ export default function App() {
                 ),
             });
         }
-    };
+    });
     useEffect(() => {
         setInputValue(password);
     }, [password]);
+
+    useEffect(() => {
+        generatePassword();
+    }, [sliderValue, useDigits, useLowercase, useUppercase, useSpecialChars]);
 
     return (
         <>
