@@ -73,9 +73,9 @@ export default function App() {
             return setPassword(passwordd);
         } else {
             toast({
-                title: "Uh oh!",
+                title: "Oops! No Character Types Selected.",
                 description:
-                    "Please select at least one character type (Lowercase, Uppercase, Digits, Special Characters) to generate a password.",
+                    "To create a strong and secure password, please select at least one character type: Lowercase Letters, Uppercase Letters, Digits (Numbers), or Special Characters.",
                 variant: "destructive",
                 action: (
                     <ToastAction
